@@ -1,14 +1,18 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./Pages/register.jsx";
 
-import './main.jsx'
-import './App.jsx'
+
+
 function App() {
   return (
-    <div>
-      <h1>Welcome to our SACCO</h1>
-      {/* Other components and content */}
-    </div>
+    <Router>
+    
+        
+        <Route path="/register" element={<Register />} />
+        
+      
+    </Router>
   );
-  
 }
 
 export default App;
