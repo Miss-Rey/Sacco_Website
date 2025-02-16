@@ -1,0 +1,7 @@
+@import "flowbite"; /* Import Flowbite styles */
+
+/* Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
