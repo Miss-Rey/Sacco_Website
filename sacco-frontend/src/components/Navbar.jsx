@@ -6,7 +6,10 @@ const TopNav = () => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
+<<<<<<< HEAD
     const [aboutDropdown, setAboutDropdown] = useState(false);
+=======
+>>>>>>> upstream/development
     const endpoint = import.meta.env.VITE_ENDPOINT;
     const userId = localStorage.getItem('UID');
     const role = localStorage.getItem('i');
@@ -43,6 +46,7 @@ const TopNav = () => {
     };
 
     return (
+<<<<<<< HEAD
         <Navbar fluid rounded className='border-b-2' style={{ backgroundColor: '#F7E895' }}>
             <Navbar.Brand>
                 <Link to={'/'} className="flex items-center">
@@ -53,6 +57,15 @@ const TopNav = () => {
             </Navbar.Brand>
 
             <div className="flex md:order-2 gap-1 justify-bottom items-bottom">
+=======
+        <Navbar  rounded className='border-b-2 h-24 flex justify-between items-center' style={{ backgroundColor: '#fff' }}>
+            <Navbar.Brand href="#">
+                <span className="self-center whitespace-nowrap text-sm lg:text-xl xl:text-xl md:text-xl text-black font-semibold">
+                    <Link to={'/'}>SACCO</Link>
+                </span>
+            </Navbar.Brand>
+            <div className="flex md:order-2 gap-1 justify-bottom items-bottom text-2xl">
+>>>>>>> upstream/development
                 {loggedIn ? (
                     <div>
                         <Dropdown
@@ -98,12 +111,17 @@ const TopNav = () => {
                 )}
             </div>
 
+<<<<<<< HEAD
             <Navbar.Collapse>
+=======
+            <Navbar.Collapse className='text-2xl'>
+>>>>>>> upstream/development
                 <Navbar.Link href="/" className='text-black'>
                     Home
                 </Navbar.Link>
                 <Navbar.Link className='text-black'><Link to={'/loans'}>Loans</Link></Navbar.Link>
                 <Navbar.Link className='text-black'><Link to={'/savings'}>Savings</Link></Navbar.Link>
+<<<<<<< HEAD
                 <li className="relative list-none text-black">
                     <button onClick={() => setAboutDropdown(!aboutDropdown)} className="hover:underline">
                         About Us
@@ -117,10 +135,17 @@ const TopNav = () => {
                         </ul>
                     )}
                 </li>
+=======
+                <Navbar.Link className='text-black'><Link to={'/about'}>About Us</Link></Navbar.Link>
+>>>>>>> upstream/development
                 <Navbar.Link className='text-black'><Link to={'/contact'}>Contact Us</Link></Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
     );
 };
 
+<<<<<<< HEAD
 export default TopNav;
+=======
+export default TopNav;
+>>>>>>> upstream/development

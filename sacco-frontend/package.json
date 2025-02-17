@@ -3,14 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "antd": "^5.24.0",
+>>>>>>> upstream/development
     "axios": "^1.7.9",
     "cra-template": "1.2.0",
     "flowbite": "^3.1.1",
     "flowbite-react": "^0.10.2",
+<<<<<<< HEAD
     "framer-motion": "^12.4.3",
     "notistack": "^3.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+=======
+    "notistack": "^3.0.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
+>>>>>>> upstream/development
     "react-router-dom": "^7.1.5",
     "react-scripts": "^3.0.1"
   },
@@ -44,7 +55,11 @@
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.2",
+<<<<<<< HEAD
     "tailwindcss": "^4.0.6",
+=======
+    "tailwindcss": "^3.4.17",
+>>>>>>> upstream/development
     "vite": "^6.1.0"
   }
 }
