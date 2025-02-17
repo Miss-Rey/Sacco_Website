@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+/* Add any custom GSAP animations or transitions if needed */
+.gallery-item img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.tabs button {
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.tabs button:hover {
+  transform: scale(1.05);
+}

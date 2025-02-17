@@ -6,6 +6,7 @@ const TopNav = () => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
+    const [aboutDropdown, setAboutDropdown] = useState(false);
     const endpoint = import.meta.env.VITE_ENDPOINT;
     const userId = localStorage.getItem('UID');
     const role = localStorage.getItem('i');
@@ -43,11 +44,14 @@ const TopNav = () => {
 
     return (
         <Navbar fluid rounded className='border-b-2' style={{ backgroundColor: '#F7E895' }}>
-            <Navbar.Brand href="#">
-                <span className="self-center whitespace-nowrap text-sm lg:text-xl xl:text-xl md:text-xl text-black font-semibold">
-                    <Link to={'/'}>SACCO</Link>
-                </span>
+            <Navbar.Brand>
+                <Link to={'/'} className="flex items-center">
+                    <span className="self-center whitespace-nowrap text-sm lg:text-xl xl:text-xl md:text-xl text-black font-semibold">
+                        SACCO
+                    </span>
+                </Link>
             </Navbar.Brand>
+
             <div className="flex md:order-2 gap-1 justify-bottom items-bottom">
                 {loggedIn ? (
                     <div>
@@ -100,7 +104,19 @@ const TopNav = () => {
                 </Navbar.Link>
                 <Navbar.Link className='text-black'><Link to={'/loans'}>Loans</Link></Navbar.Link>
                 <Navbar.Link className='text-black'><Link to={'/savings'}>Savings</Link></Navbar.Link>
-                <Navbar.Link className='text-black'><Link to={'/about'}>About Us</Link></Navbar.Link>
+                <li className="relative list-none text-black">
+                    <button onClick={() => setAboutDropdown(!aboutDropdown)} className="hover:underline">
+                        About Us
+                    </button>
+                    {aboutDropdown && (
+                        <ul className="absolute left-0 bg-white text-blue-600 shadow-lg mt-2 py-2 w-48">
+                            <li><Link to="/governance" className="block px-4 py-2 hover:bg-gray-200">Governance</Link></li>
+                            <li><Link to="/sacco-staff" className="block px-4 py-2 hover:bg-gray-200">Sacco Staff</Link></li>
+                            <li><Link to="/giving-back" className="block px-4 py-2 hover:bg-gray-200">Giving Back</Link></li>
+                            <li><Link to="/faqs" className="block px-4 py-2 hover:bg-gray-200">FAQs</Link></li>
+                        </ul>
+                    )}
+                </li>
                 <Navbar.Link className='text-black'><Link to={'/contact'}>Contact Us</Link></Navbar.Link>
             </Navbar.Collapse>
         </Navbar>

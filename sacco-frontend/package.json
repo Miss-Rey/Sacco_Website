@@ -7,6 +7,7 @@
     "cra-template": "1.2.0",
     "flowbite": "^3.1.1",
     "flowbite-react": "^0.10.2",
+    "framer-motion": "^12.4.3",
     "notistack": "^3.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

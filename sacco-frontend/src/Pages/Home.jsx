@@ -1,73 +1,74 @@
-import React, { useEffect } from 'react';
-import { gsap } from "gsap";
+import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'flowbite-react';
+// Home.jsx
+import Button from '/src/components/ui/button.jsx';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
-const HomePage = () => {
-    useEffect(() => {
-        gsap.from('.hero', { duration: 1, y: -50, opacity: 0 });
-        gsap.from('.section-title', { duration: 1, opacity: 0, y: 20, stagger: 0.2, delay: 0.5 });
-    }, []);
+export default function HomePage() {
+  const [isScrolled, setIsScrolled] = useState(false);
 
-    return (
-        <div className="bg-[#F7E895] text-[#487827]">
-            <header className="flex justify-between items-center p-4 bg-[#3D593C] text-[#F7E895]">
-                <div className="logo">SACCO Logo</div>
-                <nav>
-                    <a href="#" className="mx-4 text-[#AEC671]">About Us</a>
-                    <a href="#" className="mx-4 text-[#AEC671]">Services</a>
-                    <a href="#" className="mx-4 text-[#AEC671]">Membership</a>
-                    <a href="#" className="mx-4 text-[#AEC671]">Loans</a>
-                    <a href="#" className="mx-4 text-[#AEC671]">News</a>
-                    <a href="#" className="mx-4 text-[#AEC671]">Contact Us</a>
-                </nav>
-                <div>
-                    <button className="bg-[#AEC671] text-[#3D593C] px-4 py-2 mx-2">Login</button>
-                    <button className="bg-[#AEC671] text-[#3D593C] px-4 py-2">Sign Up</button>
-                </div>
-            </header>
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-            <div className="hero bg-cover bg-center h-96" style={{ backgroundImage: "url('https://via.placeholder.com/1200x400')" }}>
-                <div className="text-center p-20">
-                    <h1 className="text-4xl">Empowering Your Financial Future</h1>
-                    <p className="text-lg">Join Our Community of Savers and Borrowers.</p>
-                    <button className="bg-[#AEC671] text-[#3D593C] px-4 py-2 mt-4">Join Now</button>
-                </div>
-            </div>
+  return (
+    <div className="min-h-screen bg-[#CCD2D4] text-[#9FCFA0]">
+      {/* Navbar */}
+      <Navbar className={`fixed top-0 w-full transition-all duration-300 ${isScrolled ? 'bg-[#A37D3A] shadow-lg' : 'bg-transparent'}`}>
+        <NavbarBrand href="#">SACCO</NavbarBrand>
+        <NavbarToggle />
+        <NavbarCollapse>
+          <NavbarLink href="#">Home</NavbarLink>
+         <NavbarLink href="#">About Us</NavbarLink>
+          <Dropdown.Item href="/governance">Governance</Dropdown.Item>
+          <Dropdown.Item href="/sacco-staff">Sacco Staff</Dropdown.Item>
+          <Dropdown.Item href="/giving-back">Giving Back</Dropdown.Item>
+          <Dropdown.Item href="/faqs">FAQs</Dropdown.Item>
+         <NavbarLink href="#">Products & Services</NavbarLink>
+          <Dropdown.Item href="/saving-products">Saving Products</Dropdown.Item>
+          <Dropdown.Item href="/account-opening">Account Opening</Dropdown.Item>
+          <Dropdown.Item href="/request-loans">Request Loans</Dropdown.Item>
+          <Dropdown.Item href="/microloans">Microloans</Dropdown.Item>
+          <Dropdown.Item href="/insurance-agency">Primary Insurance Agency</Dropdown.Item>
+          <Dropdown.Item href="/mobile-banking">Mobile Banking</Dropdown.Item>
+          <Dropdown.Item href="/mpesa-paybill">M-Pesa PayBill Deposit</Dropdown.Item>
+         <NavbarLink href="#">Contact Us</NavbarLink>
+        </NavbarCollapse>
+      </Navbar>
 
-            <section className="p-8">
-                <h2 className="text-2xl section-title">About Us</h2>
-                <p>Learn about our history, values, and commitment to our members.</p>
-            </section>
-
-            <section className="p-8">
-                <h2 className="text-2xl section-title">Our Services</h2>
-                <p>Explore the range of services we offer to support your financial needs.</p>
-            </section>
-
-            <section className="p-8">
-                <h2 className="text-2xl section-title">Membership Benefits</h2>
-                <p>Discover the advantages of becoming a member of our SACCO.</p>
-            </section>
-
-            <section className="p-8">
-                <h2 className="text-2xl section-title">Loans</h2>
-                <p>Find out about our various loan products and how to apply.</p>
-            </section>
-
-            <section className="p-8">
-                <h2 className="text-2xl section-title">News and Updates</h2>
-                <p>Stay informed with the latest news and events from our SACCO.</p>
-            </section>
-
-            <section className="p-8">
-                <h2 className="text-2xl section-title">Contact Us</h2>
-                <p>Get in touch with us for any inquiries or assistance.</p>
-            </section>
-
-            <footer className="bg-[#5C593D] text-[#F7E895] text-center p-4">
-                <p>Quick Links | Newsletter Sign-Up | Privacy Policy</p>
-            </footer>
-        </div>
-    );
-};
-
-export default HomePage;
+      {/* Hero Section */}
+      <div className="flex flex-col items-center justify-center h-screen text-center px-6">
+        <motion.h1 
+          initial={{ opacity: 0, y: -50 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 1 }}
+          className="text-4xl md:text-6xl font-bold"
+        >
+          Empowering Our Members Financially
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ delay: 0.5, duration: 1 }}
+          className="text-lg md:text-xl mt-4 text-[#957E32]"
+        >
+          We offer a wide range of financial products and services to help you achieve your goals.
+        </motion.p>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }} 
+          animate={{ opacity: 1, scale: 1 }} 
+          transition={{ delay: 1, duration: 0.5 }}
+          className="mt-6"
+        >
+          <Button className="bg-[#659A0F] text-[#CCD2D4] hover:bg-[#A37D3A] hover:text-[#9FCFA0] px-6 py-3 rounded-full text-lg">
+            Get Started
+          </Button>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
